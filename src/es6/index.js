@@ -75,3 +75,56 @@ var hola = "Hola"; //Estaba disponible de forma global
 console.log(globalVar);
 
 const a = 'b';
+
+//-----------------------
+let nombre = 'oscar';
+let age = 32;
+
+obj = { nombre: nombre, age: age};
+//es6
+obj2 = { nombre, age };
+
+console.log(obj2);
+
+//---------------------------- Arrow functions
+// Las arrow function son funciones anonimas
+
+const names = [
+    {nombre: 'Oscar', edad: 32},
+    {nombre: 'Yesica', edad: 27}
+]
+
+let listOfNames = names.map(function (item) {
+    console.log(item.nombre);
+})
+
+let listOfNames2 = names.map(item => console.log(item.nombre));
+
+const listOfNames3 = (nombre, edad, pais) => {
+    //...
+};
+const listOfNames4 = name => {
+    //...
+};
+const square = num => num * num;
+
+
+//--------------------Promesas
+/* Con las promesas trabajamos el asincronismo => JS no es un lenguaje sincronico,
+es decir, no ejecuta muchos elementos al mismo tiempo, sino que ejecuta elemento 
+por elemento.*/
+
+const helloPromise = () => {
+    return new Promise((resolve, reject) => {
+        if (true) {
+            resolve("Hey, dio positivo, se resolvio la promesa");
+        } else {
+            reject("Ups, algo salio mal");
+        }
+    })
+}
+
+helloPromise()
+    .then(response => console.log(response)) //.then nos permitira recibir la respuesta de la promesa
+    .then(() => console.log("hola"))
+    .catch(error => console.log(error))
