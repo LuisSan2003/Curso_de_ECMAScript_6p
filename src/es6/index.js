@@ -127,4 +127,45 @@ const helloPromise = () => {
 helloPromise()
     .then(response => console.log(response)) //.then nos permitira recibir la respuesta de la promesa
     .then(() => console.log("hola"))
-    .catch(error => console.log(error))
+    .catch(error => console.log(error));
+
+
+//------------------ Clases
+/*Es una forma que vamos a manejar una sintaxis mas clara para manejar objetos
+y tambien la herencia dentro de js. Esto nos permite aplicar la POO en JS.*/
+
+class calculator {
+    constructor() {
+        this.valueA = 0;
+        this.valueB = 0;
+    }
+    sum(valueA, valueB) {
+        this.valueA = valueA;
+        this.valueB = valueB;
+        return this.valueA + this.valueB;
+    }
+}
+
+const calc = new calculator();
+console.log(calc.sum(2, 2));
+
+//------------ Modulos: Import y Export
+
+import {hello} from './module';
+hello();
+
+//------------ Generadores
+/*Retorna una serie de valores segun el algoritmo definido*/
+function* helloWorld() {
+    if (true) {
+        yield 'Hello, ';
+    }
+    if (true) {
+        yield 'World'
+    }
+};
+
+const generatorHello = helloWorld();
+console.log(generatorHello.next().value); //prints Hello, 
+console.log(generatorHello.next().value); // prints World
+console.log(generatorHello.next().value); // prints undefined
